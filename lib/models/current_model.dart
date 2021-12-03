@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class CurrentModel {
-  final int current;
+  final double current;
   final double lat;
   final double long;
   CurrentModel({
@@ -12,7 +12,7 @@ class CurrentModel {
   
 
   CurrentModel copyWith({
-    int? current,
+    double? current,
     double? lat,
     double? long,
   }) {

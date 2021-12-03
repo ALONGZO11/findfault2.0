@@ -13,7 +13,7 @@ import 'package:adobe_xd/pinned.dart';
 final Map<String, WidgetBuilder> map = {
   // '/authen': (BuildContext context) => Authen(),
   '/requireData': (BuildContext context) => ReqireData(),
-  // '/createdatabase': (BuildContext context) => CreateDatabase(),
+  '/createdatabase': (BuildContext context) => CreateDatabase(),
   '/intro': (BuildContext context) => XDintor2(),
   '/intro2': (BuildContext context) => XDGooglePixel51(),
   '/intro3': (BuildContext context) => XDintor22(),

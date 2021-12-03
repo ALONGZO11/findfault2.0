@@ -57,7 +57,7 @@ class _ReqireDataState extends State<ReqireData> {
       // appBar: AppBar(
       //   title: Text('Reqire Data'),
       // ),
-      body: loadBreaker
+      body: loadBreaker //โหลดข้อมูล bool หลังจากโหลดเสร็จจะshow เมื่อไหร่ที่เป็น true จะทำงานshow progess
           ? ShowProgess()
           : GestureDetector(
               onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -128,10 +128,33 @@ class _ReqireDataState extends State<ReqireData> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Dropdownbreaker(),
-                        DropdownType(),
+                        Container(
+                          width: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade600),
+                            borderRadius: BorderRadius.circular(4),
+                            color: Colors.grey.shade300,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Dropdownbreaker(),
+                          ),
+                        ),
+                        Container(margin: EdgeInsets.symmetric(vertical: 8
+                        ),
+                          width: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade600),
+                            borderRadius: BorderRadius.circular(4),
+                            color: Colors.grey.shade300,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: DropdownType(),
+                          ),
+                        ),
                         BuildCurrent(),
-                        Buildcaculate()
+                        Buildcaculate(),
                       ],
                     ),
                   ),
@@ -172,13 +195,13 @@ class _ReqireDataState extends State<ReqireData> {
           .collection(typeBreaker!)
           .get()
           .then((value) {
-        int? distant;
+        double? distant;
         CurrentModel? nearestModel;
         bool first = true;
 
         for (var item in value.docs) {
           CurrentModel model = CurrentModel.fromMap(item.data());
-          int test = int.parse(currentMaxStr!) - model.current;
+          double test = int.parse(currentMaxStr!) - model.current;
           test = test.abs();
           print(' ### test => $test');
           if (first) {
